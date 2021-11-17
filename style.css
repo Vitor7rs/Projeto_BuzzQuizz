@@ -1,1 +1,36 @@
-/** criando style do css */
+* {
+    box-sizing: border-box;
+
+    font-family: 'Roboto';
+}
+
+header {
+
+    height: 69px;
+    background-color: #EC362D;
+    color: #FFFFFF;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 37px;
+    line-height: 43px;
+    font-weight: bold;
+}
+
+main {
+    margin-top: 77px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.SeusQuizz {
+    width: 1051px;
+    height: 181px;
+}
+.Todos-Quizz {
+    width: 1051px;
+}
