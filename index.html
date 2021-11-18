@@ -1,32 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
-    <title>BuzzQuizz</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap" rel="stylesheet">
+        <title>BuzzQuizz</title>
+    </head>
 
-<body>
-    
-    <header>BuzzQuizz</header>
-    <main>
-        <nav>
-            <div class="SeusQuizz">
-                <p class="text-aviso-quizz">Você não criou nenhum quizz ainda :(</p>
-                <p class="botao-quizz">Criar Quizz</p>
+    <body>
+        
+        <header>BuzzQuizz</header>
+        
+        <main>
+            <nav>
+                <!-- <div class="SeusQuizz">
+                    <p class="text-aviso-quizz">Você não criou nenhum quizz ainda :(</p>
+                    <p class="botao-quizz">Criar Quizz</p>
+                </div>
+
+                <div class="Todos-Quizz">
+                    <div class="texto-escolha">Todos os Quizzes</div>
+                </div> -->
+
+            </nav>
+
+        </main>
+
+         <!-- QUIZZ ABERTO -->
+        <div class="quizz">
+             <div class="titulo-quizz">
+                    <h1 class="titulo-texto-quizz">Titulo Quizz</h1>
+             </div>
+
+            
+            <div class="pergunta-container">
+                <div class="pergunta">PERGUNTA</div>
+                
+                <div class="opcao-pergunta opcao-cinza">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <h2>Opçao 1</h2>
+                </div>
+
+                <div class="opcao-pergunta opcao-cinza">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <h2>Opçao 2</h2>
+                </div>
+
+                <div class="opcao-pergunta">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <h2>Opçao 3</h2>
+                </div>
+
+                <div class="opcao-pergunta opcao-cinza">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <h2>Opçao 4</h2>
+                </div>
+
             </div>
 
-            <div class="Todos-Quizz">
-                <div class="texto-escolha">Todos os Quizzes</div>
+            <div class="pergunta-container">
+                <div class="pergunta">PERGUNTA</div>
+                
+                <div class="opcao-pergunta opcao-cinza">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <h2>Opçao 1</h2>
+                </div>
+
+                <div class="opcao-pergunta opcao-cinza">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <h2>Opçao 2</h2>
+                </div>
+
+                <div class="opcao-pergunta opcao-cinza">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <h2>Opçao 3</h2>
+                </div>
+
+                <div class="opcao-pergunta">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <h2>Opçao 4</h2>
+                </div>
+
             </div>
-        </nav>
-    </main>
-    
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="script.js"></script>
-</body>
+
+            <div class="resultado-quizz">
+                <div class="resultado-titulo">RESULTADO</div>
+                
+                <div class="resultado-div">
+                    <img src="https://picsum.photos/200/300" alt="">
+                    <h2>Alguma coisa sobre o resultado</h3>
+                </div>
+
+            </div>
+
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="script.js"></script>
+
+    </body>
 </html>

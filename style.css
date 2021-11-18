@@ -28,6 +28,14 @@ main {
     justify-content: center;
 }
 
+body {
+    /* FUNDO PADRAO DE TODA PAGINA */
+    background-color: #E5E5E5;
+}
+
+
+ */
+
 
 .SeusQuizz {
     width: 1051px;
@@ -101,3 +109,162 @@ main {
     color: red;
 }
 /** ta quase... hmmm... */
+
+
+
+/* Para desaparecer telas */
+.invisivel{
+    display: none;
+}
+
+
+/* Estrutura do Quizz aberto */
+.quizz{
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.titulo-quizz{
+    height: 227px;
+    width: 100%;
+    
+    font-family: 'Roboto', sans-serif;
+    font-size: 39px;
+    color: #FFFFFF;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(https://cdn.falauniversidades.com.br/wp-content/uploads/2019/06/Hogwarts-School-of-Witchcraft-and-Wizardry.jpg);
+    background-size: 100%;
+}
+
+
+.pergunta-container{
+    width: 759px;
+    height: 676px;
+
+    margin-top: 42px;
+
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+
+    background-color: #FFFFFF;;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.pergunta{
+    width: 689.77px;
+    height: 137.99px;
+    background-color: #434CA0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 27px;
+    color: #FFFFFF;
+}
+
+
+.opcao-pergunta{
+    font-family: 'Roboto', sans-serif;
+    width: 329.91px;
+    height: 214px;
+}
+
+.opcao-cinza{
+    opacity: 0.5;
+} 
+
+.opcao-pergunta img{
+    width: 329.91px;
+    height: 175.2px;
+
+}
+
+.opcao-pergunta h2{
+    margin-top: 14px;
+    
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.resultado-quizz{
+    width: 759px;
+    height: 430px;
+
+    margin-top: 42px;
+    margin-bottom: 42px;
+
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+
+    background-color: #FFFFFF;;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+.resultado-titulo{
+    width: 727px;
+    height: 99px;
+    background-color: #EC362D;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 27px;
+    color: #FFFFFF;
+}
+
+.resultado-div{
+    width: 727px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: 14px;
+}
+
+.resultado-div img{
+    width: 364px;
+    height: 273px;
+}
+
+.resultado-div h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 19px;    
+    line-height: 25px;
+    color: #484848;
+    margin-left: 14px;
+}
+

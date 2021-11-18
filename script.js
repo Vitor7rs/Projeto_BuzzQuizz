@@ -1,9 +1,13 @@
 const PromessaTodosQuizzes = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes");
 PromessaTodosQuizzes.then(TratarSucesso);
 
+let ListaDeQuizzes; // lista com os quizzes
+
 function TratarSucesso(resposta) {
-    console.log(resposta.data);
+    console.log(resposta.data,"resposta");
     ColocarTodosQuizzes(resposta.data);
+    ListaDeQuizzes = resposta.data; // salvando os quizzes na lista.
+    
 }
 
 function ColocarTodosQuizzes(Objetopai){
