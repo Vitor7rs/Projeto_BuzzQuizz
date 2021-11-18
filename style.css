@@ -112,12 +112,6 @@ body {
 
 
 
-/* Para desaparecer telas */
-.invisivel{
-    display: none;
-}
-
-
 /* Estrutura do Quizz aberto */
 .quizz{
     background-color: white;
@@ -268,3 +262,7 @@ body {
     margin-left: 14px;
 }
 
+/* Para desaparecer telas */
+.invisivel{
+    display: none;
+}
