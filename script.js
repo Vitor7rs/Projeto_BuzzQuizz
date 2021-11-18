@@ -14,7 +14,7 @@ function ColocarTodosQuizzes(Objetopai){
     const ComprimentoObjetosQuizzees = Object.keys(Objetopai).length;
     //acima tem o LENGTH do Objeto com o NUMERO TOTAL DE QUIZZES!!!
 
-    const BlocodeQuizzes = document.querySelector(".Todos-Quizz");
+    const BlocodeQuizzes = document.querySelector(".caixa-de-quizzes");
 
     for(let i=0; i<ComprimentoObjetosQuizzees; i++){
         BlocodeQuizzes.innerHTML += `
