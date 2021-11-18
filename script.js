@@ -18,6 +18,6 @@ function ColocarTodosQuizzes(Objetopai){
 
     for(let i=0; i<ComprimentoObjetosQuizzees; i++){
         BlocodeQuizzes.innerHTML += `
-        <div class="bloco-cada-quizz"><img class="img-cada-quizz" src=${Objetopai[i].image}></div><div class="titulo-cada-quizz">${Objetopai[i].title}</div>`;
+        <div class="bloco-cada-quizz"><img class="img-cada-quizz" src=${Objetopai[i].image}><div class="titulo-cada-quizz">${Objetopai[i].title}</div></div>`;
     }
 }
