@@ -78,11 +78,11 @@ body {
 
 
 .Todos-Quizz {
-    width: 1051px;
+    width: 1052px;
     height: 500px;
     margin-top: 75px;
 }
-.Todos-Quizz .text-aviso-todos-quizz {
+.text-aviso-todos-quizz {
     font-size: 20px;
     line-height: 23px;
     font-weight: bold;
@@ -90,23 +90,29 @@ body {
 }
 .caixa-de-quizzes {
     display: flex;
+    justify-content: space-between;
+
     flex-wrap: wrap;
 }
-.Todos-Quizz .bloco-cada-quizz {
+.bloco-cada-quizz {
     width: 340px;
     height: 181px;
+    
     position: relative;
+
+    margin-bottom: 12px;
+    
     background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(.png);
     border-radius: 5px;
-    margin: 10px;
+   
 }
-.Todos-Quizz .img-cada-quizz {
+.img-cada-quizz {
     width: 340px;
     height: 181px;
     border-radius: 5px;
     position: absolute;
 }
-.Todos-Quizz .titulo-cada-quizz {
+.titulo-cada-quizz {
     font-size: 19px;
     line-height: 22px;
     
