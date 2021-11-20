@@ -14,7 +14,7 @@
         
         <header>BuzzQuizz</header>
         
-        <main>
+        <main class="invisivel">
             <nav>
                 <div class="SeusQuizz">
                     <div class="text-aviso-quizz">Você não criou nenhum quizz ainda :(</div>
@@ -98,9 +98,34 @@
             </div>
 
         </div>
+
+        <!-- CRIAÇÃO DE UM QUIZZ -->
+
+        <!-- InfoBasics -->
+        <div class="Desktop-8">
+            <div class="descrição-Tela-Criação Texto-Definiçao">Comece pelo começo</div>
+            <div class="conteiner">
+                <input type="text" class="criação-quizz-titulo" placeholder="Título do seu quizz" />
+                <input type="text" class="criação-quizz-url-img" placeholder="URL da imagem do seu quizz" />
+                <input type="text" class="criação-quizz-quantidade-perguntas" placeholder="Quantidade de perguntas do quizz" />
+                <input type="text" class="criação-quizz-quantidade-niveis" placeholder="Quantidade de níveis do quizz" />
+            </div>
+            <div class="botão" onclick="ValidarInfoBasics(this)">Prosseguir pra criar perguntas</div>
+        </div>
+        <!-- Criação de Perguntas -->
+        <div class="Desktop-9 invisivel">
+            <div class="descrição-Tela-Criação Texto-Definiçao">Crie suas perguntas</div>
+            <div class="conteiner">
+                
+            </div>
+            <div class="botão" onclick="ValidarPerguntas(this)">Prosseguir pra criar perguntas</div>
+        </div>
+
+        <!-- CRIAÇÃO DE UM QUIZZ -->
         
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="script.js"></script>
+        <script src="scriptdeCriacao.js"></script>
 
     </body>
 </html>
