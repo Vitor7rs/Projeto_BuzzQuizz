@@ -150,7 +150,7 @@ body {
     align-items: center;
 
     background-image: url(https://cdn.falauniversidades.com.br/wp-content/uploads/2019/06/Hogwarts-School-of-Witchcraft-and-Wizardry.jpg);
-    background-size: 100%;
+    background-size: cover;
 }
 
 
