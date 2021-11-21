@@ -317,6 +317,7 @@ input {
     all: unset;
     width: 564px;
     height: 46px;
+    padding-left: 23px;
     
     display: flex;
     align-items: center;
