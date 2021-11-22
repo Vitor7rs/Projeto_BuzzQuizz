@@ -1,5 +1,5 @@
 let Objeto = {};
-console.log(Objeto);
+
 // --> InfoBasics
 function ValidarInfoBasics(){
     const CriaçãoQuizTituloinput = document.querySelector(".criação-quizz-titulo").value;
@@ -18,7 +18,6 @@ function ValidarInfoBasics(){
             questions: [],
             levels: []
         }
-        console.log(Objeto);
         const DesktopInfobasics = document.querySelector(".Desktop-8");
         DesktopInfobasics.classList.add("invisivel");
         const DesktopCriarPerguntas = document.querySelector(".Desktop-9");
@@ -26,8 +25,8 @@ function ValidarInfoBasics(){
         ColocarPerguntas(CriaçãoQuantidadePerguntas);
     }
 }
-// --> Criação das Perguntas
 
+// --> Criação das Perguntas
 function ColocarPerguntas(CriaçãoQuantidadePerguntas){
     const conteiner = document.querySelector(".Desktop-9 .conteiner");
     for (let i=1; i<=CriaçãoQuantidadePerguntas; i++){
@@ -64,60 +63,42 @@ function ValidarPerguntas(){
         !ChecaImagem(PerguntaIndice.children[5].value) || !ChecaImagem(PerguntaIndice.children[8].value) || 
         (PerguntaIndice.children[9].value!=="" && !ChecaImagem(PerguntaIndice.children[10].value)) || 
         (PerguntaIndice.children[11].value!=="" && !ChecaImagem(PerguntaIndice.children[12].value))){
-            console.log("Perguntas mal validadas");
+            Nperguntasvalidadas =0;
             alert("Por favor, preencha os dados corretamente.");
         } else {
-            console.log("TACERTO");
             Nperguntasvalidadas +=1;
 
-            Objeto.questions[i].answers.push ({
-					text: PerguntaIndice.children[4].value,
-					image: PerguntaIndice.children[5].value,
-					isCorrectAnswer: true
-				},
-				{
-					text: PerguntaIndice.children[7].value,
-					image: PerguntaIndice.children[8].value,
-					isCorrectAnswer: false
-				})
-            //ver como resolver pra pegar esse push direito e colocar dentro do filho answer do objeto questions
-            //talvez pegar direto e adicionar dentro de questions o nome title, color e o array answers lá em cima.
-            //tento ele lá em cima eu posso chamar ele aqui embaixo pra dar o push assim como fiz com o Answer.
-            //só por dúvidas: o questions já é um array vazio lá emcima.
-
-            //talvez dividir os passos e adicionar o title, color e ""answer array vazio"" aqui embaixo;
-            //depois que já tiver eu coloco outra chamada pro objeto com o push no answer, 
-            //assim é push no questions para colocar um answervazio, depois push no anwer para colocar as coisas dentro dele.
-            //perfeito;
-            
-        }
-    }
-console.log(Objeto);
-
-    /**Para adicionar objeto após validar:
-     colocar uma variável let pra validar se houve erros dentro do for, igual o caso feito pra validar o checkPorcentagemnivel
-     Com isso, se durante os if elses houver erros nada nessa pergunta deve ser adicionado dentro do objeto;
-     Parece que vai ter algum erro nisso... pensar melhor...
-     if(PerguntaIndice.children[9].value!==""){
-                Objeto.questions.answers.push(
-                    {
-                        text: PerguntaIndice.children[9].value,
-                        image: PerguntaIndice.children[10].value,
-                        isCorrectAnswer: false
-                    }
-                );
+            Objeto.questions.push ({
+                title: PerguntaIndice.children[1].value,
+                color: PerguntaIndice.children[2].value,
+                answers: []
+            });
+            Objeto.questions[i].answers.push({
+                text: PerguntaIndice.children[4].value,
+                image: PerguntaIndice.children[5].value,
+                isCorrectAnswer: true
+            },
+            {
+                text: PerguntaIndice.children[7].value,
+                image: PerguntaIndice.children[8].value,
+                isCorrectAnswer: false
+            });
+            if(PerguntaIndice.children[9].value!==""){
+                Objeto.questions[i].answers.push({
+                    text: PerguntaIndice.children[9].value,
+                    image: PerguntaIndice.children[10].value,
+                    isCorrectAnswer: false
+                });
             }
             if(PerguntaIndice.children[11].value!==""){
-                Objeto.questions.answers.push(
-                    {
-                        text: PerguntaIndice.children[11].value,
-                        image: PerguntaIndice.children[12].value,
-                        isCorrectAnswer: false
-                    }
-                );
+                Objeto.questions[i].answers.push({
+                    text: PerguntaIndice.children[11].value,
+                    image: PerguntaIndice.children[12].value,
+                    isCorrectAnswer: false
+                });
             }
-     */
-
+        }
+    }
     if (Nperguntasvalidadas === NumerodePerguntas.length){
 
         const DesktopCPerguntas = document.querySelector(".Desktop-9");
@@ -127,14 +108,15 @@ console.log(Objeto);
         DesktopCriarNiveis.classList.remove("invisivel");
         CriarNiveis(quantidadeniveis);
         Nperguntasvalidadas = 0;
+    } else {
+        Objeto.questions = [];
+        Nperguntasvalidadas = 0;
     }
 }
 
 // --> Criação dos Níveis
-
 function CriarNiveis(quantidadeniveis) {
     const conteiner2 = document.querySelector(".Desktop-10 .conteiner");
-    // se der errado, ver as nomenclaturas, ou não, sei lá...
     for (let i=1; i<=quantidadeniveis; i++){
         conteiner2.innerHTML += `
         <div class="NivelDOconteiner">        
@@ -153,11 +135,6 @@ function FinalizarQuizz(){
     let Niveisvalidados = 0;
     let checkPorcentagemAcerto=0;
 
-    console.log(NumerodeNiveis[0].children);
-    console.log(NumerodeNiveis[0].children[1].value);
-    console.log(typeof(NumerodeNiveis[0].children[1].value));
-    console.log(parseInt(NumerodeNiveis[0].children[1].value));
-
     for(let i=0; i<NumerodeNiveis.length; i++){
         if (parseInt(NiveisPorcentagemAcerto[i].value) == 0){
             checkPorcentagemAcerto += 1;
@@ -170,14 +147,18 @@ function FinalizarQuizz(){
         if((NivelIndice.children[1].value).length<10 || parseInt(NivelIndice.children[2].value)<0 || 
         parseInt(NivelIndice.children[2].value)>100 || !ChecaImagem(NivelIndice.children[3].value) || 
         (NivelIndice.children[4].value).length<30 || checkPorcentagemAcerto===0){
-            console.log("Niveis mal Validados");
             alert("Por favor, preencha os dados corretamente.");
         } else {
-            console.log("TACERTO");
             Niveisvalidados +=1;
+
+            Objeto.levels.push ({
+                title: NivelIndice.children[1].value,
+                image: NivelIndice.children[3].value,
+                text: NivelIndice.children[4].value,
+                minValue: NivelIndice.children[2].value
+            })
         }
     }
-
     if (Niveisvalidados === NumerodeNiveis.length){
 
         const DesktopCNiveis = document.querySelector(".Desktop-10");
@@ -187,10 +168,47 @@ function FinalizarQuizz(){
         DesktopCTelafinal.classList.remove("invisivel");
         Niveisvalidados = 0;
         checkPorcentagemAcerto = 0;
-        TeladeFinalizacao();
+        ArmazenarQuizz();
+    } else {
+        Objeto.levels =[];
+        Niveisvalidados = 0;
+        console.log(Objeto);
     }
 }
 
+function ArmazenarQuizz() {
+    let PromessaArmazenar = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", Objeto);
+    PromessaArmazenar.then(TratarResposta);
+
+    function TratarResposta (resposta){
+        console.log(resposta.data);
+        let TextoID =`${resposta.data.id}`;
+
+        if (localStorage.getItem("lista")===null){
+            let CriarUmArray = [];
+            let lista = JSON.stringify(CriarUmArray);
+            localStorage.setItem("lista", lista);
+        }
+        
+        let ArraySerializado = localStorage.getItem("lista");
+        let Array = JSON.parse(ArraySerializado);
+        Array.push(TextoID);
+
+        let ObjetoASEguardar = JSON.stringify(resposta.data);
+        localStorage.setItem(TextoID, ObjetoASEguardar);
+        CriarTelaFinalizacao(TextoID);
+    }
+}
+function CriarTelaFinalizacao(TextoID) {
+    const Objetoserializado = localStorage.getItem(TextoID);
+    const QuizzFeitoAgora = JSON.parse(Objetoserializado);
+    const conteiner3 = document.querySelector(".Desktop-11 .conteiner");
+
+//na tela de todos os SEUS quizzes, será diferente, para adicionar, deve-se colocar cada um dos nomes;
+
+    conteiner3.innerHTML = `<div class="bloco-cada-quizz" onclick="abrirQuizz(${QuizzFeitoAgora.id})"><img class="img-cada-quizz" src=${QuizzFeitoAgora.image}>
+    <div class="titulo-cada-quizz">${QuizzFeitoAgora.title}</div></div>`
+}
 
 // --> Funções de checagem e variáveis globais:
 function ChecaImagem(testarurlimg) {
