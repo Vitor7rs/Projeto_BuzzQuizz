@@ -8,7 +8,7 @@ function TratarSucesso(resposta) {
     ColocarTodosQuizzes(resposta.data);
     ListaDeQuizzes = resposta.data;
      // salvando os quizzes na lista.
-    
+    console.log(ListaDeQuizzes);
 }
 
 // COLOCA A GALERA NA TELA E DEFINE OS IDs DE ENTRADA PARA O ONCLICK
