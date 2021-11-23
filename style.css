@@ -332,6 +332,39 @@ main {
     
 }
 
+.botao-reiniciar{
+    width: 260.38px;
+    height: 52px;
+    background-color: #EC362D;
+    color: #FFFFFF;
+    border-radius: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Roboto;
+    
+    font-weight: normal;
+    font-size: 21px;
+
+    
+}
+
+.voltar-home{
+    margin-top: 16px;
+    margin-bottom: 85px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #818181;
+
+}
 
 
 /* CSS para a Criação de QUIZZES */
