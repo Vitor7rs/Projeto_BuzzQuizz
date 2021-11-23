@@ -107,6 +107,12 @@ main {
     border-radius: 5px;
    
 }
+
+.bloco-cada-quizz:hover{
+    cursor: pointer;
+}
+
+
 .img-cada-quizz {
     width: 340px;
     height: 181px;
@@ -187,8 +193,8 @@ main {
     justify-content: center;
     align-items: center;
 
-    background-image: url(https://cdn.falauniversidades.com.br/wp-content/uploads/2019/06/Hogwarts-School-of-Witchcraft-and-Wizardry.jpg);
-    background-size: cover;
+    background-size: 100%;
+    
 }
 
 
@@ -235,9 +241,6 @@ main {
     height: 214px;
 }
 
-.opcao-cinza{
-    opacity: 0.5;
-} 
 
 .opcao-pergunta img{
     width: 329.91px;
@@ -312,6 +315,22 @@ main {
     color: #484848;
     margin-left: 14px;
 }
+
+/* JOGANDO QUIZZ */
+.opcao-cinza{
+    opacity: 0.5;
+} 
+
+.opcao-certa h2{
+    color: #009C22;
+    
+}
+
+.opcao-errada h2{
+    color: #FF4B4B;
+    
+}
+
 
 
 /* CSS para a Criação de QUIZZES */
