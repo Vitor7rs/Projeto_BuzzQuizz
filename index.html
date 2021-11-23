@@ -19,19 +19,19 @@
                 <!-- Sem quizz -->
                 <div class="SeusQuizz">
                     <div class="text-aviso-quizz">Você não criou nenhum quizz ainda :(</div>
-                    <div class="botao-quizz" onclick="abrirCriacao()" >Criar Quizz</div>
+                    <div class="botao-quizz" onclick="abrirCriacao()" data-identifier="create-quizz" >Criar Quizz</div>
                 </div>
 
                 <!-- Com quizz -->
 
-                <div class="quizz-usuario invisivel">
-                    <div class="user-titulo"><h2>Seus Quizzes</h2><ion-icon name="add-circle" onclick="abrirCriacao(ID)"></ion-icon></div>
+                <div class="quizz-usuario invisivel" data-identifier="user-quizzes">
+                    <div class="user-titulo"><h2>Seus Quizzes</h2><ion-icon name="add-circle" onclick="abrirCriacao(ID)" data-identifier="create-quizz"></ion-icon></div>
                     <div class="cada-quizz-usuario" onclick="abrirQuizz(ID)"><img class="img-cada-quizz" src="https://picsum.photos/200/300">
                         <div class="titulo-cada-quizz">Titulo do quizz</div>
                     </div>
                 </div>
 
-                <div class="Todos-Quizz">
+                <div class="Todos-Quizz" data-identifier="general-quizzes">
                     <div class="text-aviso-todos-quizz" >Todos os Quizzes</div>
                     <div class="caixa-de-quizzes"></div>
                 </div>
@@ -41,8 +41,11 @@
         </main>
 
          <!-- QUIZZ ABERTO COM ESTRUTURA EXEMPLO -->
-        <div class="quizz invisivel">
-             
+        <div class="quizz invisi">
+            <div class="titulo-quizz">
+                    <div></div>
+                    <h1 class="titulo-texto-quizz">Titulo</h1>
+            </div>
 
         </div>
 

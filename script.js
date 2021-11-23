@@ -7,8 +7,6 @@ let ListaDeQuizzes; // lista com os quizzes
 function TratarSucesso(resposta) {
     ColocarTodosQuizzes(resposta.data);
     ListaDeQuizzes = resposta.data;
-     // salvando os quizzes na lista.
-    console.log(ListaDeQuizzes);
 }
 
 // COLOCA A GALERA NA TELA E DEFINE OS IDs DE ENTRADA PARA O ONCLICK
@@ -20,7 +18,8 @@ function ColocarTodosQuizzes(Objetopai){
     for(let i=0; i<ComprimentoObjetosQuizzees; i++){
         
         BlocodeQuizzes.innerHTML += `
-        <div class="bloco-cada-quizz" onclick="abrirQuizz(${Objetopai[i].id})"><img class="img-cada-quizz" src=${Objetopai[i].image}>
+        <div class="bloco-cada-quizz" style =" background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${Objetopai[i].image})" onclick="abrirQuizz(${Objetopai[i].id})" data-identifier="quizz-card">
+       
         <div class="titulo-cada-quizz">${Objetopai[i].title}</div>
         </div>`;
     }
@@ -32,9 +31,9 @@ function ColocarTodosQuizzes(Objetopai){
 // function embaralhador() { 
 // 	return Math.random() - 0.5; 
 // }
-// cardsLista.sort(embaralhador);
+// opcoes.sort(embaralhador);
 
-function abrirCriacao(id){
+function abrirCriacao(){
     const tela1 = document.querySelector(" .desktop-1");
     tela1.classList.add("invisivel");
     const telaCriacao = document.querySelector(" .Desktop-8");
@@ -62,32 +61,53 @@ function colocarQuizzTela(objeto){
 
     // colocando na tela
     telaQuizz.innerHTML = `
-    <div class="titulo-quizz">
+    <div class="titulo-quizz" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.57)), 
+    url(${dadosQuizz.image}) no-repeat; background-size: cover">
             <h1 class="titulo-texto-quizz">${dadosQuizz.title}</h1>
     </div>`
+    
+    const fundoQuizz = document.querySelector(` .titulo-quizz`);
     
     for (let i = 0; i < questoes.length; i++){
         let perguntas = dadosQuizz.questions[i];
         let opcoes = perguntas.answers;
+        totalPerguntas++;
         telaQuizz.innerHTML += 
                 `
-                <div class="pergunta-container">
+                <div class="pergunta-container pergunta${i}">
                 <div class="pergunta-titulo" style="background-color: ${perguntas.color}">${dadosQuizz.questions[i].title}</div>
                 </div>
                 `
                 
-                for (let j = 0; j  < opcoes.length; j++) {
-                    const caixaPergunta= document.querySelectorAll(" .pergunta-container").item(i);
-                    console.log(caixaPergunta, "caixa pergunta");
-                    caixaPergunta.innerHTML +=
-                `
-                <div class="opcao-pergunta">
-                    <img src="${opcoes[j].image}" alt="">
-                    <h2>${opcoes[j].text}</h2>
-                </div>
-                `
-                }
+        for (let j = 0; j  < opcoes.length; j++) {
+            const caixaPergunta= document.querySelectorAll(" .pergunta-container").item(i);
+            caixaPergunta.innerHTML +=    
+            `
+            <div class="opcao-pergunta ${opcoes[j].isCorrectAnswer}" onclick="selecionarOpcao(this)">
+                <img src="${opcoes[j].image}" alt="">
+                <h2>${opcoes[j].text}</h2>
+            </div>
+             `
+        }              
     }
-
 }
 
+
+//JOGANDO QUIZZ
+let porcentagemAcerto=0;
+let perguntasCertas=0;
+let totalPerguntas=0;
+function selecionarOpcao(opcaoClicada){
+        let i = 0;
+        let opcao=opcaoClicada;
+        if(opcao.classList.contains("true")){
+            opcao.classList.add("opcao-certa")
+            perguntasCertas++
+            const naoSelecionada = document.querySelector(` .pergunta${i} div`);
+            if(naoSelecionada.classList.contains("true")==false){
+                naoSelecionada.classList.add("opcao-cinza");
+            }
+
+        }
+    
+}
