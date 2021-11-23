@@ -3,7 +3,10 @@
 
     font-family: 'Roboto', sans-serif;
 }
-
+body {
+    /* FUNDO PADRAO DE TODA PAGINA */
+    background-color: #FAFAFA;
+}
 header {
 
     height: 69px;
@@ -28,10 +31,7 @@ main {
     justify-content: center;
 }
 
-body {
-    /* FUNDO PADRAO DE TODA PAGINA */
-    background-color: #FAFAFA;
-}
+
 
 
 
@@ -330,6 +330,11 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.Desktop-11 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .descrição-Tela-Criação {
     display: flex;
     align-items: center;
@@ -384,7 +389,7 @@ input {
     align-items: center;
     justify-content: center;
 
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 21px;
@@ -393,6 +398,9 @@ input {
 
     background: #EC362D;
     border-radius: 15px;
+}
+.botão .distanciamento {
+    margin-bottom: 9px;
 }
 /* CSS para a Criação de QUIZZES */
 
