@@ -35,7 +35,10 @@ function ColocarTodosQuizzes(Objetopai){
 // cardsLista.sort(embaralhador);
 
 function abrirCriacao(id){
-    
+    const tela1 = document.querySelector(" .desktop-1");
+    tela1.classList.add("invisivel");
+    const telaCriacao = document.querySelector(" .Desktop-8");
+    telaCriacao.classList.remove("invisivel");
 }
 
 
