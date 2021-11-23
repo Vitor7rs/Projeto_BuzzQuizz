@@ -91,23 +91,3 @@ function colocarQuizzTela(objeto){
         }              
     }
 }
-
-
-//JOGANDO QUIZZ
-let porcentagemAcerto=0;
-let perguntasCertas=0;
-let totalPerguntas=0;
-function selecionarOpcao(opcaoClicada){
-        let i = 0;
-        let opcao=opcaoClicada;
-        if(opcao.classList.contains("true")){
-            opcao.classList.add("opcao-certa")
-            perguntasCertas++
-            const naoSelecionada = document.querySelector(` .pergunta${i} div`);
-            if(naoSelecionada.classList.contains("true")==false){
-                naoSelecionada.classList.add("opcao-cinza");
-            }
-
-        }
-    
-}

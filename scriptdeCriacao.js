@@ -209,8 +209,12 @@ function CriarTelaFinalizacao(TextoID) {
     const QuizzFeitoAgora = JSON.parse(Objetoserializado);
     const conteiner3 = document.querySelector(".Desktop-11 .conteiner");
 
-    conteiner3.innerHTML = `<div class="bloco-cada-quizz" onclick="abrirQuizz(${QuizzFeitoAgora.id}), AcessarQuizz(${QuizzFeitoAgora.id})"><img class="img-cada-quizz" src=${QuizzFeitoAgora.image}>
-    <div class="titulo-cada-quizz">${QuizzFeitoAgora.title}</div></div>`
+    conteiner3.innerHTML =
+    `
+    <div class="bloco-cada-quizz" onclick="AcessarQuizz(${QuizzFeitoAgora.id})"><img class="img-cada-quizz" src=${QuizzFeitoAgora.image}>
+    <div class="titulo-cada-quizz">${QuizzFeitoAgora.title}</div></div>
+    <div class="botãofinal" onclick="AcessarQuizz(${QuizzFeitoAgora.id})">Acessar Quizz</div>
+    `
 }
 //O DE CIMA É UM BLOCO
 
