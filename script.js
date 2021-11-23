@@ -111,3 +111,24 @@ function selecionarOpcao(opcaoClicada){
         }
     
 }
+
+
+function postarResultado(){
+    innerHTML+= 
+    `
+    <div class="resultado-quizz">
+        <div class="resultado-titulo">${porcentagemAcerto}% de acerto. </div>
+    
+        <div class="resultado-div">
+            <img src="https://picsum.photos/200/300" alt="">
+            <h2>Alguma coisa sobre o resultado</h3>
+        </div>
+
+    </div>
+
+    <div class="botao-reiniciar">
+
+
+    `
+    
+}
