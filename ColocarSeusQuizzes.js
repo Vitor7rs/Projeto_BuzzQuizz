@@ -6,7 +6,7 @@ if (localStorage.getItem("lista")===null){
 } else if (localStorage.getItem("lista")!==null){
     let conteinerteladeQuizzes = document.querySelector("nav .SeusQuizz");
     conteinerteladeQuizzes.classList.add("invisivel");
-    console.log(localStorage.getItem("lista"));
+   
     ColocarSeusQuizzesNaTela();
 }
 

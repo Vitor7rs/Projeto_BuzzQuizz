@@ -163,7 +163,7 @@ function FinalizarQuizz(){
     }
     if (Niveisvalidados === NumerodeNiveis.length){
 
-        console.log(Objeto);
+        
 
         const DesktopCNiveis = document.querySelector(".Desktop-10");
         const DesktopCTelafinal = document.querySelector(".Desktop-11");
@@ -184,7 +184,7 @@ function ArmazenarQuizz() {
     PromessaArmazenar.then(TratarResposta);
 
     function TratarResposta (resposta){
-        console.log(resposta.data);
+        
         let TextoID =`${resposta.data.id}`;
 
         if (localStorage.getItem("lista")===null){
