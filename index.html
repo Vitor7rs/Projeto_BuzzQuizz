@@ -38,12 +38,9 @@
 
         </main>
 
-         <!-- QUIZZ ABERTO COM ESTRUTURA EXEMPLO -->
+         <!-- QUIZZ RODANDO-->
         <div class="quizz invisivel">
-            <div class="titulo-quizz">
-                    <div></div>
-                    <h1 class="titulo-texto-quizz">Titulo</h1>
-            </div>
+            
 
         </div>
 
@@ -53,10 +50,10 @@
         <div class="Desktop-8 invisivel">
             <h3 class="descrição-Tela-Criação Texto-Definiçao">Comece pelo começo</h3>
             <div class="conteiner">
-                <input type="text" class="criação-quizz-titulo" placeholder="Título do seu quizz" />
-                <input type="text" class="criação-quizz-url-img" placeholder="URL da imagem do seu quizz" />
-                <input type="text" class="criação-quizz-quantidade-perguntas" placeholder="Quantidade de perguntas do quizz" />
-                <input type="text" class="criação-quizz-quantidade-niveis" placeholder="Quantidade de níveis do quizz" />
+                <input type="text" class="criação-quizz-titulo" placeholder="Título do seu quizz" data-identifier="question"/>
+                <input type="text" class="criação-quizz-url-img" placeholder="URL da imagem do seu quizz" data-identifier="question"/>
+                <input type="text" class="criação-quizz-quantidade-perguntas" placeholder="Quantidade de perguntas do quizz" data-identifier="question"/>
+                <input type="text" class="criação-quizz-quantidade-niveis" placeholder="Quantidade de níveis do quizz" data-identifier="question"/>
             </div>
             <div class="botão" onclick="ValidarInfoBasics(this)">Prosseguir pra criar perguntas</div>
         </div>
@@ -82,7 +79,7 @@
             <div class="conteiner">
                                     <!-- buscar no css e Colocar a imagem aqui... -->
             </div>
-            <div class="botãofinal" onclick="VoltarHome()">Voltar pra home</div>
+            <div class="voltar-home" onclick="VoltarHome()">Voltar pra home</div>
         </div>
 
         <!-- CRIAÇÃO DE UM QUIZZ Fim-->

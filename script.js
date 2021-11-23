@@ -21,17 +21,16 @@ function ColocarTodosQuizzes(Objetopai){
         <div class="bloco-cada-quizz" style =" background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%), url(${Objetopai[i].image})" onclick="abrirQuizz(${Objetopai[i].id})" data-identifier="quizz-card">
        
         <div class="titulo-cada-quizz">${Objetopai[i].title}</div>
-        </div>`;
+        </div>`
     }
 }
 
 
-// EMBARALHADOR PAR IMPLEMENTAR MAIS TARDE //
-// //embaralhando lista
-// function embaralhador() { 
-// 	return Math.random() - 0.5; 
-// }
-// opcoes.sort(embaralhador);
+//EMBARALHADOR PAR IMPLEMENTAR MAIS TARDE //
+//embaralhando lista
+function embaralhador() { 
+	return Math.random() - 0.5; 
+}
 
 function abrirCriacao(){
     const tela1 = document.querySelector(" .desktop-1");
@@ -53,11 +52,13 @@ function colocarQuizzTela(objeto){
     tela1.classList.add("invisivel");
     const telaQuizz = document.querySelector(" .quizz");
     telaQuizz.classList.remove("invisivel");
-    console.log(objeto, "RespostaComID");
+
 
     let dadosQuizz = objeto.data;
     let questoes = dadosQuizz.questions;
-    console.log(questoes, "questoes");
+    
+    niveis = dadosQuizz.levels; // salvando niveis do quizz aberto
+    
 
     // colocando na tela
     telaQuizz.innerHTML = `
@@ -71,6 +72,9 @@ function colocarQuizzTela(objeto){
     for (let i = 0; i < questoes.length; i++){
         let perguntas = dadosQuizz.questions[i];
         let opcoes = perguntas.answers;
+        opcoes.sort(embaralhador);
+        
+
         totalPerguntas++;
         telaQuizz.innerHTML += 
                 `
@@ -91,3 +95,69 @@ function colocarQuizzTela(objeto){
         }              
     }
 }
+
+
+//JOGANDO QUIZZ
+let porcentagemAcerto=0;
+let perguntasCertas=0;
+let totalPerguntas=0;
+let niveis;
+let nivel;
+let perguntasClicadas=0;
+
+function selecionarOpcao(opcaoClicada){
+    let blocoPergunta = opcaoClicada.parentNode;
+    console.log(blocoPergunta,"testeParent");
+    const respostas = blocoPergunta.querySelectorAll('.opcao-pergunta');
+
+    perguntasClicadas++
+    
+    for(let i = 0; i < respostas.length; i++){
+        if(respostas[i] !== opcaoClicada){
+            respostas[i].classList.add("opcao-cinza");
+        }
+        if(respostas[i].classList.contains("true")){
+            respostas[i].classList.add("opcao-certa");
+        }
+        else{
+            respostas[i].classList.add("opcao-errada");
+        }
+        respostas[i].removeAttribute('onclick');
+    }
+
+    if(opcaoClicada.classList.contains("true")){
+        perguntasCertas++
+    }
+    
+    if(totalPerguntas===perguntasClicadas){
+        postarResultado()
+    }
+}
+
+
+
+
+function postarResultado(){
+    porcentagemAcerto = ((perguntasCertas/totalPerguntas)*100);
+    let porcentagemFinal =  porcentagemAcerto.toFixed(0);
+    console.log(perguntasCertas, totalPerguntas, "resultado");
+
+    const telaQuizz = document.querySelector(" .quizz");
+    telaQuizz.innerHTML+= 
+    `
+    <div class="resultado-quizz">
+        <div class="resultado-titulo">${porcentagemFinal}% de acerto:${niveis} </div>
+    
+        <div class="resultado-div">
+            <img src="" alt="">
+            <h2>Alguma coisa sobre o resultad</h3>
+        </div>
+
+    </div>
+
+
+    <div class="botao-reiniciar" onclick="reiniciarQuizz(this)">Reiniciar Quizz</div>
+    <div class = "voltar-home" onclick="VoltarHome()"> Voltar para a home </div>
+    `
+}
+

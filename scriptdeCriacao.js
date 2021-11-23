@@ -33,20 +33,20 @@ function ColocarPerguntas(CriaçãoQuantidadePerguntas){
         conteiner.innerHTML += `
         <div class="PerguntaDOconteiner">
         <h3 class="Texto-Especifica-Input Texto-Definiçao">Pergunta ${i}</h3>
-        <input type="text" placeholder="Texto da pergunta" />
-        <input type="text" placeholder="Cor de fundo da pergunta" />
+        <input type="text" placeholder="Texto da pergunta" data-identifier="question"/>
+        <input type="text" placeholder="Cor de fundo da pergunta" data-identifier="question"/>
 
         <h3 class="Texto-Especifica-Input Texto-Definiçao">Resposta correta</h3>
-        <input type="text" placeholder="Resposta correta" />
-        <input type="text" placeholder="URL da imagem" />
+        <input type="text" placeholder="Resposta correta" data-identifier="question"/>
+        <input type="text" placeholder="URL da imagem" data-identifier="question"/>
         
         <h3 class="Texto-Especifica-Input Texto-Definiçao">Respostas Incorretas</h3>
-        <input type="text" placeholder="Resposta incorreta 1" />
-        <input type="text" placeholder="URL da imagem 1" />
-        <input type="text" placeholder="Resposta incorreta 2" />
-        <input type="text" placeholder="URL da imagem 2" />
-        <input type="text" placeholder="Resposta incorreta 3" />
-        <input type="text" placeholder="URL da imagem 3" />
+        <input type="text" placeholder="Resposta incorreta 1" data-identifier="question"/>
+        <input type="text" placeholder="URL da imagem 1" data-identifier="question"/>
+        <input type="text" placeholder="Resposta incorreta 2" data-identifier="question"/>
+        <input type="text" placeholder="URL da imagem 2" data-identifier="question"/>
+        <input type="text" placeholder="Resposta incorreta 3" data-identifier="question"/>
+        <input type="text" placeholder="URL da imagem 3" data-identifier="question"/>
         </div>`;
     }
 }
@@ -121,10 +121,10 @@ function CriarNiveis(quantidadeniveis) {
         conteiner2.innerHTML += `
         <div class="NivelDOconteiner">        
         <h3 class="Texto-Especifica-Input Texto-Definiçao">Nível ${i}</h3>
-        <input type="text" placeholder="Título do nível" />
-        <input type="text" class="PorcentagemdeAcerto" placeholder="% de acerto mínima" />
-        <input type="text" placeholder="URL da imagem do nível" />
-        <input type="text" placeholder="Descrição do nível" />
+        <input type="text" placeholder="Título do nível" data-identifier="level"/>
+        <input type="text" class="PorcentagemdeAcerto" placeholder="% de acerto mínima" data-identifier="level"/>
+        <input type="text" placeholder="URL da imagem do nível" data-identifier="level"/>
+        <input type="text" placeholder="Descrição do nível" data-identifier="level"/>
         </div>`;
     }
 }
@@ -211,9 +211,9 @@ function CriarTelaFinalizacao(TextoID) {
 
     conteiner3.innerHTML =
     `
-    <div class="bloco-cada-quizz" onclick="AcessarQuizz(${QuizzFeitoAgora.id})"><img class="img-cada-quizz" src=${QuizzFeitoAgora.image}>
+    <div class="bloco-cada-quizz" onclick="AcessarQuizz(${QuizzFeitoAgora.id})"><img class="img-cada-quizz" src=${QuizzFeitoAgora.image} data-identifier="quizz-card">
     <div class="titulo-cada-quizz">${QuizzFeitoAgora.title}</div></div>
-    <div class="botãofinal" onclick="AcessarQuizz(${QuizzFeitoAgora.id})">Acessar Quizz</div>
+    <div class="botao-reiniciar" onclick="AcessarQuizz(${QuizzFeitoAgora.id})">Acessar Quizz</div>
     `
 }
 //O DE CIMA É UM BLOCO
@@ -229,13 +229,6 @@ function VoltarHome(){
     document.location.reload(true);
     
 }
-/* isso tava dentro do VoltarHome acima...
-const DesktopCTelafinal = document.querySelector(".Desktop-11");
-    const DesktopCtelaInicial = document.querySelector(".desktop-1");
-    PedirQuizzes();
-    DesktopCTelafinal.classList.add("invisivel");
-    DesktopCtelaInicial.classList.remove("invisivel");
-*/
 
 // --> Funções de checagem e variáveis globais:
 function ChecaImagem(testarurlimg) {
