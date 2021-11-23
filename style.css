@@ -89,9 +89,10 @@ main {
     font-weight: bold;
     margin-bottom: 10px;
 }
-.caixa-de-quizzes {
+.caixa-de-quizzes, .caixa-de-quizzes-do-usuario {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
+    gap: 15px;
 
     flex-wrap: wrap;
 }

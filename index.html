@@ -24,11 +24,9 @@
 
                 <!-- Com quizz -->
 
-                <div class="quizz-usuario invisivel" data-identifier="user-quizzes">
-                    <div class="user-titulo"><h2>Seus Quizzes</h2><ion-icon name="add-circle" onclick="abrirCriacao(ID)" data-identifier="create-quizz"></ion-icon></div>
-                    <div class="cada-quizz-usuario" onclick="abrirQuizz(ID)"><img class="img-cada-quizz" src="https://picsum.photos/200/300">
-                        <div class="titulo-cada-quizz">Titulo do quizz</div>
-                    </div>
+                <div class="quizz-usuario" data-identifier="user-quizzes">
+                    <div class="user-titulo"><h2>Seus Quizzes</h2><ion-icon name="add-circle" onclick="abrirCriacao()" data-identifier="create-quizz"></ion-icon></div>
+                    <div class="caixa-de-quizzes-do-usuario"></div>
                 </div>
 
                 <div class="Todos-Quizz" data-identifier="general-quizzes">
@@ -93,6 +91,7 @@
         
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+        <script src="ColocarSeusQuizzes.js"></script>
         <script src="script.js"></script>
         <script src="scriptdeCriacao.js"></script>
 
