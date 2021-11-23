@@ -129,6 +129,8 @@ function CriarNiveis(quantidadeniveis) {
     }
 }
 
+//ADICIONAR UMA DIV E BOTÃO EM CADA PERGUNTA, cuidado com linhas, PARA COLOCAR A CLASSE QUE MUDA NÃO O DISPLAY NONE, MAS A VIZIBILIDADE!!!!
+
 function FinalizarQuizz(){
     const NumerodeNiveis = document.querySelectorAll(".NivelDOconteiner");
     const NiveisPorcentagemAcerto = document.querySelectorAll(".PorcentagemdeAcerto");
@@ -161,6 +163,8 @@ function FinalizarQuizz(){
     }
     if (Niveisvalidados === NumerodeNiveis.length){
 
+        console.log(Objeto);
+
         const DesktopCNiveis = document.querySelector(".Desktop-10");
         const DesktopCTelafinal = document.querySelector(".Desktop-11");
 
@@ -172,7 +176,6 @@ function FinalizarQuizz(){
     } else {
         Objeto.levels =[];
         Niveisvalidados = 0;
-        console.log(Objeto);
     }
 }
 
@@ -193,6 +196,8 @@ function ArmazenarQuizz() {
         let ArraySerializado = localStorage.getItem("lista");
         let Array = JSON.parse(ArraySerializado);
         Array.push(TextoID);
+        let ArrayASEguardar = JSON.stringify(Array);
+        localStorage.setItem("lista", ArrayASEguardar);
 
         let ObjetoASEguardar = JSON.stringify(resposta.data);
         localStorage.setItem(TextoID, ObjetoASEguardar);
@@ -204,11 +209,29 @@ function CriarTelaFinalizacao(TextoID) {
     const QuizzFeitoAgora = JSON.parse(Objetoserializado);
     const conteiner3 = document.querySelector(".Desktop-11 .conteiner");
 
-//na tela de todos os SEUS quizzes, será diferente, para adicionar, deve-se colocar cada um dos nomes;
-
-    conteiner3.innerHTML = `<div class="bloco-cada-quizz" onclick="abrirQuizz(${QuizzFeitoAgora.id})"><img class="img-cada-quizz" src=${QuizzFeitoAgora.image}>
+    conteiner3.innerHTML = `<div class="bloco-cada-quizz" onclick="abrirQuizz(${QuizzFeitoAgora.id}), AcessarQuizz(${QuizzFeitoAgora.id})"><img class="img-cada-quizz" src=${QuizzFeitoAgora.image}>
     <div class="titulo-cada-quizz">${QuizzFeitoAgora.title}</div></div>`
 }
+//O DE CIMA É UM BLOCO
+
+//O DE BAIXO É UM BOTÃO
+function AcessarQuizz(QuizdeAgoraID){
+    const DesktopCTelafinal = document.querySelector(".Desktop-11");
+    DesktopCTelafinal.classList.add("invisivel");
+
+    abrirQuizz(QuizdeAgoraID);
+}
+function VoltarHome(){
+    document.location.reload(true);
+    
+}
+/* isso tava dentro do VoltarHome acima...
+const DesktopCTelafinal = document.querySelector(".Desktop-11");
+    const DesktopCtelaInicial = document.querySelector(".desktop-1");
+    PedirQuizzes();
+    DesktopCTelafinal.classList.add("invisivel");
+    DesktopCtelaInicial.classList.remove("invisivel");
+*/
 
 // --> Funções de checagem e variáveis globais:
 function ChecaImagem(testarurlimg) {

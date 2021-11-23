@@ -89,9 +89,10 @@ main {
     font-weight: bold;
     margin-bottom: 10px;
 }
-.caixa-de-quizzes {
+.caixa-de-quizzes, .caixa-de-quizzes-do-usuario {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
+    gap: 15px;
 
     flex-wrap: wrap;
 }
@@ -373,18 +374,21 @@ main {
 .conteiner {
     padding: 20px;
     gap: 9px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
 
     background-color: #FFFFFF;
 }
+.PerguntaDOconteiner {
+    gap: 9px;
+}
 input {
     all: unset;
     width: 564px;
     height: 46px;
     padding-left: 23px;
+    gap: 9px;
     
     display: flex;
     align-items: center;
@@ -418,8 +422,24 @@ input {
     background: #EC362D;
     border-radius: 15px;
 }
-.botão .distanciamento {
-    margin-bottom: 9px;
+.botãofinal {
+    width: 368.86px;
+    height: 54px;
+    margin-top: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 21px;
+
+    color: #FFF5F4;
+
+    background: #EC362D;
+    border-radius: 15px;
 }
 /* CSS para a Criação de QUIZZES */
 
