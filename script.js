@@ -25,9 +25,7 @@ function ColocarTodosQuizzes(Objetopai){
     }
 }
 
-
-//EMBARALHADOR PAR IMPLEMENTAR MAIS TARDE //
-//embaralhando lista
+//embaralhando lista de opçoes de cada Pergunta
 function embaralhador() { 
 	return Math.random() - 0.5; 
 }
@@ -39,15 +37,17 @@ function abrirCriacao(){
     telaCriacao.classList.remove("invisivel");
 }
 
-
+let identificador;
 // RODAR QUIZZ
 function abrirQuizz(id){
     let linkQuizz = "https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/"+id;
     const quizzSelecionado = axios.get(linkQuizz);
     quizzSelecionado.then(colocarQuizzTela);
+    identificador=id;
 }
 
 function colocarQuizzTela(objeto){
+    window.scrollTo({ top: 100, left: 100, behavior: 'smooth' });
     const tela1 = document.querySelector(" .desktop-1");
     tela1.classList.add("invisivel");
     const telaQuizz = document.querySelector(" .quizz");
@@ -91,23 +91,18 @@ function colocarQuizzTela(objeto){
                 <img src="${opcoes[j].image}" alt="">
                 <h2>${opcoes[j].text}</h2>
             </div>
-             `
+            `
         }              
     }
 }
 
 
 //JOGANDO QUIZZ
-let porcentagemAcerto=0;
-let perguntasCertas=0;
-let totalPerguntas=0;
-let niveis;
-let nivel;
 let perguntasClicadas=0;
+let totalPerguntas=0;
 
 function selecionarOpcao(opcaoClicada){
     let blocoPergunta = opcaoClicada.parentNode;
-    console.log(blocoPergunta,"testeParent");
     const respostas = blocoPergunta.querySelectorAll('.opcao-pergunta');
 
     perguntasClicadas++
@@ -134,30 +129,41 @@ function selecionarOpcao(opcaoClicada){
     }
 }
 
-
-
-
+let porcentagemAcerto=0;
+let perguntasCertas=0;
+let niveis;
 function postarResultado(){
     porcentagemAcerto = ((perguntasCertas/totalPerguntas)*100);
     let porcentagemFinal =  porcentagemAcerto.toFixed(0);
-    console.log(perguntasCertas, totalPerguntas, "resultado");
+    let indiceLevel;
 
     const telaQuizz = document.querySelector(" .quizz");
+    
+    for (let i = 0; i< niveis.length; i++ ){
+        if(porcentagemFinal >= niveis[i].minValue){
+            indiceLevel=i
+        }
+    }
+    
     telaQuizz.innerHTML+= 
     `
     <div class="resultado-quizz">
-        <div class="resultado-titulo">${porcentagemFinal}% de acerto:${niveis} </div>
+        <div class="resultado-titulo">${porcentagemFinal}% de acerto: ${niveis[indiceLevel].title}</div>
     
         <div class="resultado-div">
-            <img src="" alt="">
-            <h2>Alguma coisa sobre o resultad</h3>
+            <img src="${niveis[indiceLevel].image}" alt="">
+            <h2>${niveis[indiceLevel].text}</h2>
         </div>
-
     </div>
 
-
-    <div class="botao-reiniciar" onclick="reiniciarQuizz(this)">Reiniciar Quizz</div>
+    <div class="botao-reiniciar" onclick="reiniciarQuizz()">Reiniciar Quizz</div>
     <div class = "voltar-home" onclick="VoltarHome()"> Voltar para a home </div>
     `
+
+}
+
+
+function reiniciarQuizz(){
+    abrirQuizz(identificador);
 }
 

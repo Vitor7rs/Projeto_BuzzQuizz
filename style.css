@@ -309,12 +309,15 @@ main {
 }
 
 .resultado-div h2{
+    width: 250px;
+    
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 19px;    
     line-height: 25px;
     color: #484848;
     margin-left: 14px;
+    word-wrap: break-word;
 }
 
 /* JOGANDO QUIZZ */
