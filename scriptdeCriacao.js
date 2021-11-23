@@ -206,8 +206,20 @@ function CriarTelaFinalizacao(TextoID) {
 
 //na tela de todos os SEUS quizzes, será diferente, para adicionar, deve-se colocar cada um dos nomes;
 
-    conteiner3.innerHTML = `<div class="bloco-cada-quizz" onclick="abrirQuizz(${QuizzFeitoAgora.id})"><img class="img-cada-quizz" src=${QuizzFeitoAgora.image}>
+    conteiner3.innerHTML = `<div class="bloco-cada-quizz" onclick="abrirQuizz(${QuizzFeitoAgora.id}), AcessarQuizz()"><img class="img-cada-quizz" src=${QuizzFeitoAgora.image}>
     <div class="titulo-cada-quizz">${QuizzFeitoAgora.title}</div></div>`
+}
+
+function AcessarQuizz(){
+    const DesktopCTelafinal = document.querySelector(".Desktop-11");
+    DesktopCTelafinal.classList.add("invisivel");
+}
+function VoltarHome(){
+    const DesktopCTelafinal = document.querySelector(".Desktop-11");
+    const DesktopCtelaInicial = document.querySelector(".desktop-1");
+    PedirQuizzes();
+    DesktopCTelafinal.classList.add("invisivel");
+    DesktopCtelaInicial.classList.remove("invisivel");
 }
 
 // --> Funções de checagem e variáveis globais:
