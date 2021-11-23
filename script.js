@@ -21,7 +21,8 @@ function ColocarTodosQuizzes(Objetopai){
         
         BlocodeQuizzes.innerHTML += `
         <div class="bloco-cada-quizz" onclick="abrirQuizz(${Objetopai[i].id})"><img class="img-cada-quizz" src=${Objetopai[i].image}>
-        <div class="titulo-cada-quizz">${Objetopai[i].title}</div></div>`;
+        <div class="titulo-cada-quizz">${Objetopai[i].title}</div>
+        </div>`;
     }
 }
 
@@ -32,6 +33,10 @@ function ColocarTodosQuizzes(Objetopai){
 // 	return Math.random() - 0.5; 
 // }
 // cardsLista.sort(embaralhador);
+
+function abrirCriacao(id){
+    
+}
 
 
 // RODAR QUIZZ
@@ -52,6 +57,7 @@ function colocarQuizzTela(objeto){
     let questoes = dadosQuizz.questions;
     console.log(questoes, "questoes");
 
+    // colocando na tela
     telaQuizz.innerHTML = `
     <div class="titulo-quizz">
             <h1 class="titulo-texto-quizz">${dadosQuizz.title}</h1>
@@ -60,21 +66,25 @@ function colocarQuizzTela(objeto){
     for (let i = 0; i < questoes.length; i++){
         let perguntas = dadosQuizz.questions[i];
         let opcoes = perguntas.answers;
-        telaQuizz.innerHTML += `
-        
-        <div class="pergunta-container">
-                <div class="pergunta-titulo">${dadosQuizz.questions[i].title}</div>`
+        telaQuizz.innerHTML += 
+                `
+                <div class="pergunta-container">
+                <div class="pergunta-titulo" style="background-color: ${perguntas.color}">${dadosQuizz.questions[i].title}</div>
+                </div>
+                `
                 
-                for (let i = 0; i  < opcoes.length; i++) {
-                    telaQuizz.innerHTML +=
-                `<div class="opcao-pergunta">
-                    <img src="${opcoes[i].image}" alt="">
-                    <h2>${opcoes[i].text}</h2>
-                </div>`
-                
+                for (let j = 0; j  < opcoes.length; j++) {
+                    const caixaPergunta= document.querySelectorAll(" .pergunta-container").item(i);
+                    console.log(caixaPergunta, "caixa pergunta");
+                    caixaPergunta.innerHTML +=
+                `
+                <div class="opcao-pergunta">
+                    <img src="${opcoes[j].image}" alt="">
+                    <h2>${opcoes[j].text}</h2>
+                </div>
+                `
                 }
-        `</div>`
-                
     }
 
 }
+

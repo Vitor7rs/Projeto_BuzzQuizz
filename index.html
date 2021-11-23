@@ -16,13 +16,23 @@
         
         <main class="desktop-1">
             <nav>
-                <div class="SeusQuizz">
+                <!-- Sem quizz -->
+                <div class="SeusQuizz invisivel">
                     <div class="text-aviso-quizz">Você não criou nenhum quizz ainda :(</div>
-                    <div class="botao-quizz">Criar Quizz</div>
+                    <div class="botao-quizz" onclick="abrirCriacao(this)" >Criar Quizz</div>
+                </div>
+
+                <!-- Com quizz -->
+
+                <div class="quizz-usuario">
+                    <div class="user-titulo"><h2>Seus Quizzes</h2><ion-icon name="add-circle" onclick="abrirCriacao(ID)"></ion-icon></div>
+                    <div class="cada-quizz-usuario" onclick="abrirQuizz(ID)"><img class="img-cada-quizz" src="https://picsum.photos/200/300">
+                        <div class="titulo-cada-quizz">Titulo do quizz</div>
+                    </div>
                 </div>
 
                 <div class="Todos-Quizz">
-                    <div class="text-aviso-todos-quizz">Todos os Quizzes</div>
+                    <div class="text-aviso-todos-quizz" >Todos os Quizzes</div>
                     <div class="caixa-de-quizzes"></div>
                 </div>
 
@@ -32,70 +42,7 @@
 
          <!-- QUIZZ ABERTO COM ESTRUTURA EXEMPLO -->
         <div class="quizz invisivel">
-             <div class="titulo-quizz">
-                    <h1 class="titulo-texto-quizz">Titulo Quizz</h1>
-             </div>
-
-            
-            <div class="pergunta-container">
-                <div class="pergunta-titulo">PERGUNTA</div>
-                
-                <div class="opcao-pergunta opcao-cinza">
-                    <img src="https://picsum.photos/200/300" alt="">
-                    <h2>Opçao 1</h2>
-                </div>
-
-                <div class="opcao-pergunta opcao-cinza">
-                    <img src="https://picsum.photos/200/300" alt="">
-                    <h2>Opçao 2</h2>
-                </div>
-
-                <div class="opcao-pergunta">
-                    <img src="https://picsum.photos/200/300" alt="">
-                    <h2>Opçao 3</h2>
-                </div>
-
-                <div class="opcao-pergunta opcao-cinza">
-                    <img src="https://picsum.photos/200/300" alt="">
-                    <h2>Opçao 4</h2>
-                </div>
-
-            </div>
-
-            <div class="pergunta-container">
-                <div class="pergunta">PERGUNTA</div>
-                
-                <div class="opcao-pergunta opcao-cinza">
-                    <img src="https://picsum.photos/200/300" alt="">
-                    <h2>Opçao 1</h2>
-                </div>
-
-                <div class="opcao-pergunta opcao-cinza">
-                    <img src="https://picsum.photos/200/300" alt="">
-                    <h2>Opçao 2</h2>
-                </div>
-
-                <div class="opcao-pergunta opcao-cinza">
-                    <img src="https://picsum.photos/200/300" alt="">
-                    <h2>Opçao 3</h2>
-                </div>
-
-                <div class="opcao-pergunta">
-                    <img src="https://picsum.photos/200/300" alt="">
-                    <h2>Opçao 4</h2>
-                </div>
-
-            </div>
-
-            <div class="resultado-quizz">
-                <div class="resultado-titulo">RESULTADO</div>
-                
-                <div class="resultado-div">
-                    <img src="https://picsum.photos/200/300" alt="">
-                    <h2>Alguma coisa sobre o resultado</h3>
-                </div>
-
-            </div>
+             
 
         </div>
 
@@ -140,7 +87,9 @@
 
         <!-- CRIAÇÃO DE UM QUIZZ Fim-->
         
+        
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
         <script src="script.js"></script>
         <script src="scriptdeCriacao.js"></script>
 
