@@ -8,7 +8,7 @@ function ValidarInfoBasics(){
     const CriaçãoQuizUrlImg = document.querySelector(".criação-quizz-url-img").value;
     quantidadeniveis = CriaçãoQuantidadeNiveis;
 
-    if(CriaçãoQuizTituloinput.length<10 || CriaçãoQuizTituloinput.length>50
+    if(CriaçãoQuizTituloinput.length<7 || CriaçãoQuizTituloinput.length>49
         || CriaçãoQuantidadePerguntas<3 || CriaçãoQuantidadeNiveis<2 || !ChecaImagem(CriaçãoQuizUrlImg)){
         alert("Por favor, preencha os dados corretamente.");
     } else {
